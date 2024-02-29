@@ -1,4 +1,6 @@
-{ home-manager, stylix, ... }:
+{ config, lib, pkgs, home-manager, stylix, ... }:
+
+with lib;
 
 {
   imports = [
@@ -16,6 +18,21 @@
   };
 
   system = {
-    stateVersion = "23.11";
+    stateVersion = "24.05";
+  };
+
+  users.groups.hasundue = {};
+
+  users.users.hasundue = {
+    createHome = true;
+    description = "Shun Ueda";
+    group = "hasundue";
+    extraGroups = [ "wheel" ]
+      ++ optionals config.networking.networkmanager.enable [ "networkmanager" ]
+      ++ optionals config.programs.sway.enable [ "input" "video" ]
+      ++ optionals config.sound.enable [ "audio" ]
+      ++ optionals config.virtualisation.docker.enable [ "docker" ];
+    isNormalUser = true;
+    shell = pkgs.fish;
   };
 }

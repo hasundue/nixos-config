@@ -1,3 +1,0 @@
-[submodule "users/hasundue/core/neovim"]
-	path = users/hasundue/core/neovim
-	url = https://github.com/hasundue/neovim-config

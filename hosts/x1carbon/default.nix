@@ -9,10 +9,10 @@
     ../../core
     ../../graphical
 
-    ../../users/hasundue
+    ../../home
 
-    # Machine specific user configuration
-    ./users/hasundue
+    # Machine specific home configuration
+    ./home
   ];
 
   boot = {
